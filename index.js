@@ -232,8 +232,7 @@ client.on('message', (message) => {
         }
       })
   } else if(message.content.startsWith('!전체공지2')) {
-    if(message.author.id !== `685497398113730560`)
-    if(message.author.id !== `684198009008816144`) {
+    if(message.author.id !== `685497398113730560` && message.outhor.id !== '684198009008816144') {
       return message.reply('```VIP전용 명령어입니다```*구매:연희#8040* [가격:1000원]')
     }
     if(checkPermission(message)) return
