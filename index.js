@@ -49,35 +49,28 @@ client.on('message', (message) => {
   if(message.author.bot) return;
 
   if(message.content == '연희야') {
-    return message.reply('아 나 쳐 부르지말고 "!도움말"쳐서 니들이 명령어 확인하고 쳐 보셈 (**부탁임 ㅈㅂ**)');
+    return message.reply('"!도움말" 치시고 명령어 확인해주세요');
   }});
   
   client.on('message', (message) => {
     if(message.author.bot) return;
   
     if(message.content == '연희야 뭐해?') {
-      return message.reply('상메나 쳐봐라 뭐하는지 나온다야');
+      return message.reply('상메 보셈');
     }});
-
-    client.on('message', (message) => {
-      if(message.author.bot) return;
-    
-      if(message.content == '연희야 나 어때?') {
-        return message.reply('그냥 밥 처럼 보임 (**물론 먹는 밥 아님**)');
-      }});
 
       client.on('message', (message) => {
         if(message.author.bot) return;
       
         if(message.content == '연희야 사랑해') {
-          return message.reply('난 너 안사랑해 ㅂㅂ');
+          return message.reply('ㅇㅇ');
         }});
 
         client.on('message', (message) => {
           if(message.author.bot) return;
         
-          if(message.content == '연희야 패르마의마지막정리를 설명해봐') {
-            return message.reply('타원곡선 y^2=x(x-a^n)(x+b^n) 꼴로 변형했을때 L=(s,E) L=(s,F) 인 보형 형식 F가 존제하지않으므로 모순이 발생 즉 해가없다.(**됐냐? 컄퉤**)');
+          if(message.content == '연희야 페르마의마지막정리를 설명해봐') {
+            return message.reply('타원곡선 y^2=x(x-a^n)(x+b^n) 꼴로 변형했을때 L=(s,E) L=(s,F) 인 보형 형식 F가 존재하지않으므로 모순이 발생 즉 해가없다.(**됐냐? 컄퉤**)');
           }});
 
           client.on('message', (message) => {
@@ -87,30 +80,13 @@ client.on('message', (message) => {
               return message.reply('상메나 쳐봐라 뭐하는지 나온다야');
             }});
 
-
-            client.on('message', (message) => {
-              if(message.author.bot) return;
-            
-              if(message.content == '연희야 씨발') {
-                return message.reply('ㅗ');
-              }});
-  
-
             client.on('message', (message) => {
               if(message.author.bot) return;
               
               if(message.content == '연희야 시발') {
                 return message.reply('ㅗ');
               }});
-
-              client.on('message', (message) => {
-                if(message.author.bot) return;
-              
-                if(message.content == '연희야 엿먹어') {
-                  return message.reply('니 손가락 뜯어서 주면 먹을개 아 혹시라도 먹는 엿이면 니가 사다주던지');
-                }});
-    
-
+  
                 client.on('message', (message) => {
                   if(message.author.bot) return;
                 
@@ -122,43 +98,8 @@ client.on('message', (message) => {
                     if(message.author.bot) return;
                   
                     if(message.content == '연희야 머리딸리죠') {
-                      return message.reply('닌 얼마나 천제인지 보자**(함수 f(x) 는 x^4 - 3x^2 + 8 에 대하여 미분f(2)의 값을 구하시오)**');
-                    }});
-
-                    client.on('message', (message) => {
-                      if(message.author.bot) return;
-                    
-                      if(message.content == '연희야 사퇴') {
-                        return message.reply('꺼져');
-                      }});
-          
-            client.on('message', (message) => {
-              if(message.author.bot) return;
-            
-              if(message.content == '연희야 느금마') {
-                return message.reply('?? 패드립 무엇? **(느금마 조상 박근혜 fuckingman)**');
-              }});
-
-              client.on('message', (message) => {
-                if(message.author.bot) return;
-              
-                if(message.content == '연희야 연희') {
-                  return message.reply('나 부르지말라고 이자식아');
-                }});
-
-          client.on('message', (message) => {
-            if(message.author.bot) return;
-          
-            if(message.content == '연희야 섹스') {
-              return message.reply('ㅈ까 씨발');
-            }});
-
-            client.on('message', (message) => {
-              if(message.author.bot) return;
-            
-              if(message.content == '연희야 정액') {
-                return message.reply('(**취존**)');
-              }
+                      return message.reply('닌 얼마나 천제인지 보자**(함수 f(x) 는 x^4 - 3x^2 + 8 에 대하여 미분f(2)의 값을 구하시오)**')
+                   }
 
 
   if(message.content == 'sadfasdfasdf') {
