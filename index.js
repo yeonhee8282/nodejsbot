@@ -310,6 +310,7 @@ client.on('message', (message) => {
  
     //json to Array
     var data = fs.readFileSync('./user_list.json', 'utf8');
+    console.log(data);
     var user_list_arr = JSON.parse(data);
  
     //search user 1
