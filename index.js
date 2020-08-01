@@ -254,7 +254,7 @@ client.on('message', (message) => {
       achan.send(message.content.slice(6));
     });
   }
-  if (msg.content.startsWith('!등록 ')) {
+  if (msg.content.startsWith('mbti 등록 ')) {
     var reg_mbti = msg.content.split(' ');
  
     //type
@@ -303,7 +303,7 @@ client.on('message', (message) => {
     }
   }
  
-  if (msg.content.startsWith('!궁합')) {
+  if (msg.content.startsWith('mbti 궁합')) {
     var comp_mbti = msg.content.split(' ');
  
     //json to Array
@@ -372,7 +372,7 @@ client.on('message', (message) => {
       msg.channel.send(resultEmbed);
  
     }
-  };
+  }
 });
 
 function checkPermission(message) {
