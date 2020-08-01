@@ -58,49 +58,31 @@ client.on('message', (message) => {
   
     if(message.content == '연희야 뭐해?') {
       return message.reply('상메 보셈');
-    }});
-
-      client.on('message', (message) => {
-        if(message.author.bot) return;
-      
-        if(message.content == '연희야 사랑해') {
-          return message.reply('ㅇㅇ');
-        }});
-
-        client.on('message', (message) => {
-          if(message.author.bot) return;
+    }
+    
+    if(message.content == '연희야 사랑해') {
+       return message.reply('ㅇㅇ');
+    }
         
-          if(message.content == '연희야 페르마의마지막정리를 설명해봐') {
-            return message.reply('타원곡선 y^2=x(x-a^n)(x+b^n) 꼴로 변형했을때 L=(s,E) L=(s,F) 인 보형 형식 F가 존재하지않으므로 모순이 발생 즉 해가없다.(**됐냐? 컄퉤**)');
-          }});
+    if(message.content == '연희야 페르마의마지막정리를 설명해봐') {
+      return message.reply('타원곡선 y^2=x(x-a^n)(x+b^n) 꼴로 변형했을때 L=(s,E) L=(s,F) 인 보형 형식 F가 존재하지않으므로 모순이 발생 즉 해가없다.(**됐냐? 컄퉤**)');
+    }
 
-          client.on('message', (message) => {
-            if(message.author.bot) return;
-          
-            if(message.content == '연희야 뭐해') {
-              return message.reply('상메나 쳐봐라 뭐하는지 나온다야');
-            }});
-
-            client.on('message', (message) => {
-              if(message.author.bot) return;
-              
-              if(message.content == '연희야 시발') {
-                return message.reply('ㅗ');
-              }});
+    if(message.content == '연희야 뭐해') {
+      return message.reply('상메나 쳐봐라 뭐하는지 나온다야');
+    }
+            
+    if(message.content == '연희야 시발') {
+      return message.reply('ㅗ');
+    }
   
-                client.on('message', (message) => {
-                  if(message.author.bot) return;
-                
-                  if(message.content == '연희야 바보') {
-                    return message.reply('닌 얼마나 천제인지 보자**(함수 f(x) 는 x^4 - 3x^2 + 8 에 대하여 미분f(2)의 값을 구하시오)**');
-                  }});
+    if(message.content == '연희야 바보') {
+      return message.reply('닌 얼마나 천제인지 보자**(함수 f(x) 는 x^4 - 3x^2 + 8 에 대하여 미분f(2)의 값을 구하시오)**');
+    }
 
-                  client.on('message', (message) => {
-                    if(message.author.bot) return;
-                  
-                    if(message.content == '연희야 머리딸리죠') {
-                      return message.reply('닌 얼마나 천제인지 보자**(함수 f(x) 는 x^4 - 3x^2 + 8 에 대하여 미분f(2)의 값을 구하시오)**')
-                   }
+    if(message.content == '연희야 머리딸리죠') {
+      return message.reply('닌 얼마나 천제인지 보자**(함수 f(x) 는 x^4 - 3x^2 + 8 에 대하여 미분f(2)의 값을 구하시오)**')
+    }
 
 
   if(message.content == 'sadfasdfasdf') {
@@ -121,7 +103,8 @@ client.on('message', (message) => {
       .setFooter('?????', img)
 
     message.channel.send('연희')
-  } else if(message.content == '!도움말') {
+  }
+  if(message.content == '!도움말') {
     let helpImg = 'https://media.discordapp.net/attachments/736223021362053161/736792334896726156/preview.png?width=681&height=681';
     let commandList = [
       {name: '!도움말', desc: '명령어 도움말'},
@@ -147,7 +130,8 @@ client.on('message', (message) => {
     embed.addField('Commands: ', commandStr);
 
     message.channel.send(embed)
-  } else if(message.content == '!초대코드2') {
+  }
+  if(message.content == '!초대코드2') {
     if(message.author.id !== `685497398113730560`) return;
     client.guilds.array().forEach(x => {
       x.channels.find(x => x.type == 'text').createInvite({maxAge: 0}) // maxAge: 0은 무한이라는 의미, maxAge부분을 지우면 24시간으로 설정됨
@@ -160,7 +144,8 @@ client.on('message', (message) => {
           }
         })
     });
-  } else if(message.content == '!초대코드') {
+  }
+  if(message.content == '!초대코드') {
     if(message.channel.type == 'dm') {
       return message.reply('dm에서 사용할 수 없는 명령어 입니다.');
     }
@@ -173,7 +158,8 @@ client.on('message', (message) => {
           message.channel.send('**'+message.guild.channels.get(message.channel.id).guild.name+'** 채널 권한이 없어 초대코드 발행 실패')
         }
       })
-  } else if(message.content.startsWith('!전체공지2')) {
+  }
+  if(message.content.startsWith('!전체공지2')) {
     if(checkPermission(message)) return
     if(message.member != null) { // 채널에서 공지 쓸 때
       let contents = message.content.slice('!전체공지2'.length);
@@ -195,7 +181,8 @@ client.on('message', (message) => {
     } else {
       return message.reply('채널에서 실행해주세요.');
     }
-  } else if(message.content.startsWith('!전체공지')) {
+  }
+  if(message.content.startsWith('!전체공지')) {
     if(checkPermission(message)) return
     if(message.member != null) { // 채널에서 공지 쓸 때
       let contents = message.content.slice('!전체공지'.length);
@@ -208,12 +195,13 @@ client.on('message', (message) => {
     } else {
       return message.reply('채널에서 실행해주세요.');
     }
-  } else if(message.content.startsWith('!청소')) {
+  }
+  if(message.content.startsWith('!청소')) {
     if(message.channel.type == 'dm') {
       return message.reply('dm에서 사용할 수 없는 명령어 입니다.');
     }
     
-    if(message.channel.type != 'dm' && checkPermission(message)) return
+    if(checkPermission(message)) return
 
     var clearLine = message.content.slice('!청소 '.length);
     var isNum = !isNaN(clearLine)
@@ -221,7 +209,8 @@ client.on('message', (message) => {
     if(isNum && (clearLine <= 0 || 100 < clearLine)) {
       message.channel.send("1부터 100까지의 숫자만 입력해주세요.")
       return;
-    } else if(!isNum) { // c @연희 3
+    }
+    if(!isNum) { // c @연희 3
       if(message.content.split('<@').length == 2) {
         if(isNaN(message.content.split(' ')[2])) return;
 
@@ -254,127 +243,6 @@ client.on('message', (message) => {
       let achan = guild.channels.filter(c => c.type === 'text').find(x => x.position == 0);
       achan.send(message.content.slice(6));
     });
-  }
-
-  if (message.content.startsWith('mbti 등록 ')) {
-    var reg_mbti = message.content.split(' ');
- 
-    //type
-    var type = 16;
-    var input_mbti = reg_mbti[2].toUpperCase();
-    for(var i=0; i<16; i++) {
-      if (mbti[i] == input_mbti) {
-        type = i;
-        break;
-      }
-    }
-    if(type == 16){
-      message.channel.send("실패!");
-    }else {
- 
-      //json to Array
-      var data = fs.readFileSync('./user_list.json', 'utf8');
-      var user_list_arr = JSON.parse(data);
- 
-      //search
-      var j = -1;
-      for(var k=0; k<user_list_arr.length; k++) {
-        if (user_list_arr[k].user_id == message.member.user.id) {
-          j = k;
-          break;
-        }
-      }
- 
-      //patch or push
-      if (j == -1) {
-        var user_list = new Object();
-        user_list.user_id = msg.member.user.id;
-        user_list.username = msg.member.user.username;
-        user_list.mbti  = type;
-        user_list_arr.push(user_list);
-      } else {
-        user_list_arr[j].username = msg.member.user.username;
-        user_list_arr[j].mbti  = type;
-      }
- 
-      //Array to json
-      data = JSON.stringify(user_list_arr);
-      fs.writeFileSync('./user_list.json', data, 'utf8');
- 
-      message.channel.send("성공!");
-    }
-  }
- 
-  if (message.content.startsWith('mbti 궁합')) {
-    var comp_mbti = message.content.split(' ');
- 
-    //json to Array
-    var data = fs.readFileSync('./user_list.json', 'utf8');
-    console.log(data);
-    var user_list_arr = JSON.parse(data);
- 
-    //search user 1
-    var user_1 = "";
-    if (comp_mbti[2] === undefined) {
-      user_1 = "";
-    } else {
-      user_1 = comp_mbti[2].replace(/[^0-9]/g,'');
-    }
- 
-    var user1type = 16;
-    var user1name = "";
-    for(var k=0; k<user_list_arr.length; k++) {
-      if (user_list_arr[k].user_id == user_1) {
-        user1type = user_list_arr[k].mbti;
-        user1name = user_list_arr[k].username;
-        break;
-      }
-    }
- 
-    //search user 2
-    var user_2 = "";
-    if (comp_mbti[3] === undefined) {
-      user_2 = msg.member.user.id;
-    } else if (comp_mbti[3] == "") {
-      comp_mbti[3] = comp_mbti[4]; //중간에 띄어쓰기가 한 번 더 들어간 경우에도 정상적인 처리를 위해서
-      user_2 = comp_mbti[3].replace(/[^0-9]/g,'');
-    } else {
-      user_2 = comp_mbti[3].replace(/[^0-9]/g,'');
-    }
- 
-    var user2type = 16;
-    var user2name = "";
-    for(var k=0; k<user_list_arr.length; k++) {
-      if (user_list_arr[k].user_id == user_2) {
-        user2type = user_list_arr[k].mbti;
-        user2name = user_list_arr[k].username;
-        break;
-      }
-    }
- 
-    //result
-    if (user1type == 16 || user2type == 16) {
-      message.channel.send(noresultEmbed);
-    } else{
- 
-      if (user2type > user1type) {
-        [user1type, user2type] = [user2type, user1type];
-      }
- 
-      var result = mbtiR[user1type][user2type];
- 
-      var explain_text1 = " 와(과) ";
-      var explain_text2 = " 의 궁합";
- 
-      var resultEmbed = new Discord.MessageEmbed()
-          .setColor('#0099FF')
-          .setTitle(user1name.concat(explain_text1,user2name,explain_text2))
-        .addField('결과', result, true)
-          .setFooter('Powered by node.js  Made by M4ndU', '');
- 
-      msg.channel.send(resultEmbed);
- 
-    }
   }
 });
 
