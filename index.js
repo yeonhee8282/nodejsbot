@@ -130,7 +130,6 @@ client.on('message', (message) => {
       {name: '!청소', desc: '텍스트 지움'},
       {name: '!초대코드', desc: '해당 채널의 초대 코드 표기'},
       {name: '!초대코드2', desc: '봇 운영자 전용'},
-      {name: '!궁합', desc: '궁합을 확인함'},
     ];
     let commandStr = '연희';
     let embed = new Discord.RichEmbed()
@@ -255,7 +254,7 @@ client.on('message', (message) => {
       achan.send(message.content.slice(6));
     });
   }
-  if (msg.content.startsWith('mbti 등록 ')) {
+  if (msg.content.startsWith('!등록 ')) {
     var reg_mbti = msg.content.split(' ');
  
     //type
@@ -373,8 +372,7 @@ client.on('message', (message) => {
       msg.channel.send(resultEmbed);
  
     }
-  }
-
+  };
 });
 
 function checkPermission(message) {
