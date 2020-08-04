@@ -168,7 +168,7 @@ client.on('message', (message) => {
         .setColor('#186de6')
         .setThumbnail('https://ifh.cc/g/lKywFI.jpg')
         .setTimestamp()
-        embed.addField('공지: ', contents);
+        embed.addField(message.guild.name + '에서 온 공지', contents);
   
       message.member.guild.members.array().forEach(x => {
         if(x.user.bot) return;
