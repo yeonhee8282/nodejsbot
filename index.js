@@ -167,10 +167,9 @@ client.on('message', (message) => {
         .setAuthor('공지 of 연희 BOT','https://ifh.cc/g/lKywFI.jpg')
         .setColor('#186de6')
         .setThumbnail('https://ifh.cc/g/lKywFI.jpg')
-        .setFooter(`연희 BOT ❤️`)
         .setTimestamp()
-  
-      embed.addField('공지: ', contents);
+        .set
+        embed.addField(message.guild.name + '에서 온 공지', contents);
   
       message.member.guild.members.array().forEach(x => {
         if(x.user.bot) return;
