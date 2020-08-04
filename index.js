@@ -164,11 +164,11 @@ client.on('message', (message) => {
     if(message.member != null) { // 채널에서 공지 쓸 때
       let contents = message.content.slice('!전체공지2'.length);
       let embed = new Discord.RichEmbed()
-        .setAuthor(message.guild.name + '에서 온 공지','https://ifh.cc/g/lKywFI.jpg')
+        .setAuthor('https://ifh.cc/g/lKywFI.jpg%27',message.guild.name + '에서 온 공지')
         .setColor('#186de6')
         .setThumbnail('https://ifh.cc/g/lKywFI.jpg')
         .setTimestamp()
-        embed.addField(message.guild.name + '에서 온 공지', contents);
+        embed.addField('공지', contents);
   
       message.member.guild.members.array().forEach(x => {
         if(x.user.bot) return;
