@@ -78,8 +78,8 @@ client.on('message', (message) => {
     let commandList = [
       {name: '!도움말', desc: '명령어 도움말'},
       {name: 'ping', desc: '현재 핑 상태'},
-      {name: '!전체공지', desc: 'dm으로 전체 공지 보내기'},
-      {name: '!전체공지2', desc: 'dm으로 전체 embed 형식으로 공지 보내기'},
+      {name: '!관리자공지', desc: 'dm으로 전체 공지 보내기'},
+      {name: '!관리자공지2', desc: 'dm으로 전체 embed 형식으로 공지 보내기'},
       {name: '!청소', desc: '텍스트 지움'},
       {name: '!초대코드', desc: '해당 채널의 초대 코드 표기'},
       {name: '!초대코드2', desc: '봇 운영자 전용'},
@@ -87,7 +87,7 @@ client.on('message', (message) => {
     let commandStr = '연희';
     let embed = new Discord.RichEmbed()
       .setAuthor('Help of 연희 BOT', helpImg)
-      .setColor('#186de6')
+      .setColor('#FF0000')
       .setThumbnail('https://ifh.cc/g/lKywFI.jpg')
       .setFooter(`연희 BOT ❤️`)
       .setTimestamp()
@@ -128,13 +128,13 @@ client.on('message', (message) => {
         }
       })
   }
-  if(message.content.startsWith('!전체공지2')) {
+  if(message.content.startsWith('!관리자공지2')) {
     if(checkPermission(message)) return
     if(message.member != null) { // 채널에서 공지 쓸 때
       let contents = message.content.slice('!전체공지2'.length);
       let embed = new Discord.RichEmbed()
         .setAuthor('공지 of 연희 BOT','https://ifh.cc/g/lKywFI.jpg')
-        .setColor('#186de6')
+        .setColor('#FF0000')
         .setThumbnail('https://ifh.cc/g/lKywFI.jpg')
         .setTimestamp()
         embed.addField(message.guild.name + '에서 온 공지', contents);
@@ -149,7 +149,7 @@ client.on('message', (message) => {
       return message.reply('채널에서 실행해주세요.');
     }
   }
-  if(message.content.startsWith('!전체공지')) {
+  if(message.content.startsWith('!관리자공지')) {
     if(checkPermission(message)) return
     if(message.member != null) { // 채널에서 공지 쓸 때
       let contents = message.content.slice('!전체공지'.length);
@@ -173,8 +173,8 @@ client.on('message', (message) => {
     var clearLine = message.content.slice('!청소 '.length);
     var isNum = !isNaN(clearLine)
 
-    if(isNum && (clearLine <= 0 || 200 < clearLine)) {
-      message.channel.send("1부터 200까지의 숫자만 입력해주세요.")
+    if(isNum && (clearLine <= 0 || 100 < clearLine)) {
+      message.channel.send("1부터 100까지의 숫자만 입력해주세요.")
       return;
     }
     if(!isNum) { // c @연희 3
