@@ -173,8 +173,8 @@ client.on('message', (message) => {
     var clearLine = message.content.slice('!청소 '.length);
     var isNum = !isNaN(clearLine)
 
-    if(isNum && (clearLine <= 0 || 100 < clearLine)) {
-      message.channel.send("1부터 100까지의 숫자만 입력해주세요.")
+    if(isNum && (clearLine <= 0 || 200 < clearLine)) {
+      message.channel.send("1부터 200까지의 숫자만 입력해주세요.")
       return;
     }
     if(!isNum) { // c @연희 3
