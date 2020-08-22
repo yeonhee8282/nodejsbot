@@ -212,7 +212,8 @@ client.on('message', (message) => {
       achan.send(message.content.slice(6));
     });
   }
-  if(message.content == '!si') {
+
+  if(message.content == '!상태') {
     let embed = new Discord.RichEmbed()
     let img = 'https://ifh.cc/g/lKywFI.jpg';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
@@ -224,7 +225,6 @@ client.on('message', (message) => {
     embed.addField('running time', `${duration}`, true);
     embed.addField('user',         `${client.users.size.toLocaleString()}`, true);
     embed.addField('server',       `${client.guilds.size.toLocaleString()}`, true);
-    // embed.addField('channel',      `${client.channels.size.toLocaleString()}`, true);
     embed.addField('Discord.js',   `v${Discord.version}`, true);
     embed.addField('Node',         `${process.version}`, true);
     
@@ -233,7 +233,6 @@ client.on('message', (message) => {
     list = `\`\`\`css\n`;
     
     for(let i=0;i<arr.length;i++) {
-      // list += `${arr[i].name} - ${arr[i].id}\n`
       list += `${arr[i].name}\n`
     }
     list += `\`\`\`\n`
