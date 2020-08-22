@@ -212,7 +212,7 @@ client.on('message', (message) => {
       achan.send(message.content.slice(6));
     });
   }
-  if(message.content == '!상태') {
+  if(message.content == '!si') {
     let embed = new Discord.RichEmbed()
     let img = 'https://ifh.cc/g/lKywFI.jpg';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
