@@ -83,6 +83,7 @@ client.on('message', (message) => {
       {name: '!청소', desc: '텍스트 지움'},
       {name: '!초대코드', desc: '해당 채널의 초대 코드 표기'},
       {name: '!초대코드2', desc: '봇 운영자 전용'},
+      {name: '!상태', desc: '봇 운영자 전용'},
     ];
     let commandStr = '연희';
     let embed = new Discord.RichEmbed()
