@@ -103,7 +103,7 @@ client.on('message', (message) => {
   }
   if(message.content == '!상태') {
     let embed = new Discord.RichEmbed()
-    let img = 'https://ifh.cc/g/lKywFI.jpg';
+    let img = 'https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
     embed.setColor('#186de6')
     embed.setAuthor('server info of DM BOT', img)
@@ -129,7 +129,7 @@ client.on('message', (message) => {
     embed.setTimestamp()
     message.channel.send(embed);
   }
-  
+
   if(message.content == '!초대코드2') {
     if(message.author.id !== `685497398113730560`) return;
     client.guilds.array().forEach(x => {
