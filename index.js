@@ -53,37 +53,6 @@ client.on('message', (message) => {
     return message.reply('"!도움말" 치시고 명령어 확인해주세요');
   }
 
-  if(message.content == '!상태보기') {
-    let embed = new Discord.RichEmbed()
-    let img = 'https://ifh.cc/g/lKywFI.jpg';
-    var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
-    embed.setColor('#186de6')
-    embed.setAuthor('server info of DM BOT', img)
-    embed.setFooter(`DM' BOT ❤️`)
-    embed.addBlankField()
-    embed.addField('RAM usage',    `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
-    embed.addField('running time', `${duration}`, true);
-    embed.addField('user',         `${client.users.size.toLocaleString()}`, true);
-    embed.addField('server',       `${client.guilds.size.toLocaleString()}`, true);
-    // embed.addField('channel',      `${client.channels.size.toLocaleString()}`, true);
-    embed.addField('Discord.js',   `v${Discord.version}`, true);
-    embed.addField('Node',         `${process.version}`, true);
-
-    let arr = client.guilds.array();
-    let list = '';
-    list = `\`\`\`css\n`;
-    
-    for(let i=0;i<arr.length;i++) {
-       // list += `${arr[i].name} - ${arr[i].id}\n`
-      list += `${arr[i].name}\n`
-    }
-    list += `\`\`\`\n`
-    embed.addField('list:',        `${list}`);
-
-    embed.setTimestamp()
-    message.channel.send(embed);
-  }
-
   if(message.content == 'sadfasdfasdf') {
     let img = 'https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256';
     let embed = new Discord.RichEmbed()
@@ -240,6 +209,34 @@ client.on('message', (message) => {
       achan.send(message.content.slice(6));
     });
   }
+  if(message.content.startsWith("!투표")) {
+    let args = message.content.split(" ") // ["!투표", "항목1/항목2/항목3", "시간(초)"]
+    let list = args[1].split("/") // ["항목1", "항목2", "항목3"]
+    let emojis = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣"]
+    let tempString = ""
+    let temp = 0
+    if(!args) message.reply("`!투표 [항목1/항목2/항목3] 시간(1초 이상)` 이 올바른 명령어 입니다.")
+    if(!args[2] || args[2] < 1) message.reply("`!투표 [항목1/항목2/항목3] 시간(1초 이상)` 이 올바른 명령어 입니다.")
+    if(list > 5) message.reply("항목은 최대 5개까지 가능합니다.")
+    let embed = new Discord.MessageEmbed()
+    embed.setTitle(`${message.member.displayName}님의 투표`)
+        for(let i=0; i<list.length; i++) {
+            temp += 1
+            tempString += `**${temp}. ${list[i]}**\n`
+        }
+    embed.setDescription(tempString)
+    embed.setFooter(`투표시간: ${args[2]}초`)
+    console.log('전송')
+    message.channel.send({ embed: embed }).then(msg => {
+        for(let i=0; i<list.length; i++) {
+            msg.react(emojis[i])
+        }
+        setTimeout(function() {
+            msg.edit(`<@!${message.author.id}> 투표가 종료되었습니다.`, { embed: embed })
+            console.log('종료')
+        }, parseInt(args[2])*1000)
+    })
+}
 });
 
 function checkPermission(message) {
