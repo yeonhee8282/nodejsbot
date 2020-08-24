@@ -65,14 +65,16 @@ client.on('message', (message) => {
     embed.addField('running time', `${duration}`, true);
     embed.addField('user',         `${client.users.size.toLocaleString()}`, true);
     embed.addField('server',       `${client.guilds.size.toLocaleString()}`, true);
+    // embed.addField('channel',      `${client.channels.size.toLocaleString()}`, true);
     embed.addField('Discord.js',   `v${Discord.version}`, true);
     embed.addField('Node',         `${process.version}`, true);
-    
+
     let arr = client.guilds.array();
     let list = '';
     list = `\`\`\`css\n`;
     
     for(let i=0;i<arr.length;i++) {
+       // list += `${arr[i].name} - ${arr[i].id}\n`
       list += `${arr[i].name}\n`
     }
     list += `\`\`\`\n`
