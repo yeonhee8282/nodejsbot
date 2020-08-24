@@ -53,7 +53,7 @@ client.on('message', (message) => {
     return message.reply('"!도움말" 치시고 명령어 확인해주세요');
   }
 
-  if(message.content == '!상태') {
+  if(message.content == '!상태보기') {
     let embed = new Discord.RichEmbed()
     let img = 'https://ifh.cc/g/lKywFI.jpg';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
