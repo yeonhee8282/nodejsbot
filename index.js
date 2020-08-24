@@ -51,8 +51,36 @@ client.on('message', (message) => {
 
   if(message.content == '!DM명령어') {
     return message.reply('"!도움말" 치시고 명령어 확인해주세요');
-  };
+  }
 
+  if(message.content == '!상태') {
+    let embed = new Discord.RichEmbed()
+    let img = 'https://ifh.cc/g/lKywFI.jpg';
+    var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
+    embed.setColor('#186de6')
+    embed.setAuthor('server info of DM BOT', img)
+    embed.setFooter(`DM' BOT ❤️`)
+    embed.addBlankField()
+    embed.addField('RAM usage',    `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
+    embed.addField('running time', `${duration}`, true);
+    embed.addField('user',         `${client.users.size.toLocaleString()}`, true);
+    embed.addField('server',       `${client.guilds.size.toLocaleString()}`, true);
+    embed.addField('Discord.js',   `v${Discord.version}`, true);
+    embed.addField('Node',         `${process.version}`, true);
+    
+    let arr = client.guilds.array();
+    let list = '';
+    list = `\`\`\`css\n`;
+    
+    for(let i=0;i<arr.length;i++) {
+      list += `${arr[i].name}\n`
+    }
+    list += `\`\`\`\n`
+    embed.addField('list:',        `${list}`);
+
+    embed.setTimestamp()
+    message.channel.send(embed);
+  }
 
   if(message.content == 'sadfasdfasdf') {
     let img = 'https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256';
@@ -83,7 +111,6 @@ client.on('message', (message) => {
       {name: '!청소', desc: '텍스트 지움'},
       {name: '!초대코드', desc: '해당 채널의 초대 코드 표기'},
       {name: '!초대코드2', desc: '봇 운영자 전용'},
-      {name: '!상태', desc: '서버삳태 확인'},
     ];
     let commandStr = '연희';
     let embed = new Discord.RichEmbed()
@@ -210,34 +237,6 @@ client.on('message', (message) => {
       let achan = guild.channels.filter(c => c.type === 'text').find(x => x.position == 0);
       achan.send(message.content.slice(6));
     });
-  }
-  if(message.content == '!상태') {
-    let embed = new Discord.RichEmbed()
-    let img = 'https://ifh.cc/g/lKywFI.jpg';
-    var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
-    embed.setColor('#186de6')
-    embed.setAuthor('server info of DM BOT', img)
-    embed.setFooter(`DM' BOT ❤️`)
-    embed.addBlankField()
-    embed.addField('RAM usage',    `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
-    embed.addField('running time', `${duration}`, true);
-    embed.addField('user',         `${client.users.size.toLocaleString()}`, true);
-    embed.addField('server',       `${client.guilds.size.toLocaleString()}`, true);
-    embed.addField('Discord.js',   `v${Discord.version}`, true);
-    embed.addField('Node',         `${process.version}`, true);
-    
-    let arr = client.guilds.array();
-    let list = '';
-    list = `\`\`\`css\n`;
-    
-    for(let i=0;i<arr.length;i++) {
-      list += `${arr[i].name}\n`
-    }
-    list += `\`\`\`\n`
-    embed.addField('list:',        `${list}`);
-
-    embed.setTimestamp()
-    message.channel.send(embed);
   }
 });
 
