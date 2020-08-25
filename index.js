@@ -46,6 +46,16 @@ client.on("guildMemberRemove", (member) => {
   byeChannel.send(`<@${deleteUser.id}> ${byeChannelComment}\n`);
 });
 
+function response(room, msg, sender, isGroupChat, replier) {
+  var words = ["시발", "병신", "지랄", "버러지", "씹새"];
+  for (var n = 0; n < words.length; n++) {
+  var words2 = msg.replace(/[^0-9a-zA-Zㄱ-ㅎㅏ-ㅣ가-힣]/gi,""); 
+      if (words2.indexOf(words[n]) != -1) {
+          replier.reply("[필터링]\n"+sender+"님의 욕이 감지되었습니다.\n감지된 욕:"+"*"+words[n].substr(1));
+          break;
+      }
+  }
+}
 client.on('message', (message) => {
   if(message.author.bot) return;
 
