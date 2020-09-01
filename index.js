@@ -285,27 +285,6 @@ client.on(`message`, msg => {
 		return msg.mentions.users.array();
 
 	}
-	/**
-	 * @returns {Discord.TextChannel?}
-	 */
-	function getChanMention(str){
-
-		if(exist(str, true)){
-
-			if(!msg.mentions.channels.first()) return null;
-			return msg.mentions.channels.array();
-
-		}
-
-		if(!msg.mentions.channels.first()) return null;
-		return msg.mentions.channels.array();
-
-	}
-	function getArgs(count){
-
-		// let [ mention, count ] = getArgs(2);
-
-	}
 
 	try {
 
@@ -626,26 +605,6 @@ class Embed {
 			this.embed.description += String(str);
 
 		} else this.embed.description = String(str);
-
-		return this;
-
-	}
-
-	pushField(field){
-
-		this.embed.fields.push({
-			name: field[0],
-			value: field[1],
-			inline: field[2] === true
-		});
-
-		return this;
-
-	}
-
-	pushFields(fields){
-
-		this.embed.fields = this.embed.fields.concat(fields);
 
 		return this;
 
