@@ -9,8 +9,6 @@ module.exports = {
 
 	],
 
-	token: ``, // 봇 토큰
-
 	muteRoleName: `mute`, // 뮤트 역할 이름
 
 	swearList: [ // 욕설 정규식들
