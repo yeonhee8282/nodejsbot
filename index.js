@@ -4,7 +4,6 @@ const fs = require(`fs`);
 const config = require(`./config.js`);
 const client = new Discord.Client();
 const token = process.env.token;
-//const token = `NzM2MjE3NzYzMjI3NjMxNjM2.XxrmOQ.iN-KKAGNPkUSUns1QI_5x1uqr8c`;
 const welcomeChannelName = "환영합니다";
 const byeChannelName = "수고하셨습니다";
 const welcomeChannelComment = "어서오세요.";
