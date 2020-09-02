@@ -348,6 +348,7 @@ client.on(`message`, msg => {
 	new Command(`starts`, `경고 확인`, () => {
 
 		let mention = getUserMention(args[0]) || msg.author;
+		let warn = DB.get(`${mention.id}.warn`);
 
 		if(mention.bot){
 
@@ -365,8 +366,8 @@ client.on(`message`, msg => {
 			new Embed(
 				emoji(`question`) + bold(`경고 확인`)
 			).addDesc(`${mention}님은 현재 ${
-				`${DB.get(`${mention.id}.warn`)}회의 경고를 받았습` || `경고를 받지 않았습`
-			}니다.`)
+				warn === (null || 0) ? `받은 경고가 없` : `${warn}회의 경고를 받았`
+			}습니다.`)
 		);
 
 	}, 1);
