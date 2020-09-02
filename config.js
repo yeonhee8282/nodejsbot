@@ -4,8 +4,7 @@ module.exports = {
 
 	admin: [ // 사용자 id(문자열)
 
-		`example`,
-		`example 2`
+		`685497398113730560`
 
 	],
 

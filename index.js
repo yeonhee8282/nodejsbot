@@ -4,6 +4,7 @@ const fs = require(`fs`);
 const config = require(`./config.js`);
 const client = new Discord.Client();
 const token = process.env.token;
+//const token = `NzM2MjE3NzYzMjI3NjMxNjM2.XxrmOQ.iN-KKAGNPkUSUns1QI_5x1uqr8c`;
 const welcomeChannelName = "환영합니다";
 const byeChannelName = "수고하셨습니다";
 const welcomeChannelComment = "어서오세요.";
@@ -98,6 +99,8 @@ client.on('message', (message) => {
 	  {name: '!청소', desc: '텍스트 지움'},
 	  {name: '!초대코드', desc: '해당 채널의 초대 코드 표기'},
 	  {name: '!초대코드2', desc: '봇 운영자 전용'},
+	  {name: '-경고 확인 (닉네임)', desc: '플레이어의 경고를 확인함'},
+	  {name: '-경고 설정 (닉네임) (변수)', desc: '플레이어의 경고를 설정함함'},
 	];
 	let commandStr = '연희';
 	let embed = new Discord.RichEmbed()
@@ -277,7 +280,7 @@ client.on(`message`, msg => {
 
 			matchedUser = matchedUser[1];
 
-			return client.users.cache.get(matchedUser);
+			return client.users.get(matchedUser);
 
 		}
 
@@ -326,7 +329,7 @@ client.on(`message`, msg => {
 
 	let args;
 
-	new Command(`startsInf`, `eval`, () => {
+	new Command(`starts`, `eval`, () => {
 
 		if(msg.author.id !== config.admin[0]) return;
 
@@ -367,7 +370,7 @@ client.on(`message`, msg => {
 			}니다.`)
 		);
 
-	});
+	}, 1);
 
 	new Command(`starts`, `경고 설정`, () => {
 
@@ -378,11 +381,11 @@ client.on(`message`, msg => {
 
 		if(mention instanceof Array) DB.add(`${mention.id}.warn`, 0);
 
-		if(mention === null || 1 < mention.length || /\./.test(String(count)) || isNaN(count) || count < 0 || 5 < count){
+		if(mention === null || /\./.test(String(count)) || isNaN(count) || count < 0 || 5 < count){
 
 			let reason;
 
-			if(mention === null || 1 < mention.length) reason = `양식에 맞지 않는 명령입니다.\n\n양식 :${block(`경고 설정 <@대상> <수량>`, `fix`)}`;
+			if(mention === null) reason = `양식에 맞지 않는 명령입니다.\n\n양식 :${block(`경고 설정 <@대상> <수량>`, `fix`)}`;
 			else if(/\./.test(String(count)) || isNaN(count) || count < 0 || 5 < count) reason = `수량은 1 ~ 9의 자연수만 가능합니다.`;
 
 			sendmsg(
@@ -403,7 +406,7 @@ client.on(`message`, msg => {
 			).addDesc(`${mention}님의 경고를 ${count}회로 설정했습니다.`)
 		);
 
-	});
+	}, 2);
 
 	new Command(`starts`, `경고 삭제`, () => {
 
@@ -440,7 +443,7 @@ client.on(`message`, msg => {
 			).addDesc(`${mention}님의 경고를 ${count}회 삭제했습니다.`)
 		);
 
-	});
+	}, 2);
 
 
 
@@ -455,7 +458,7 @@ client.on(`message`, msg => {
 
 			if(command.checkCondition(msg)){
 				args = msg.content.split(/ +/).slice(command.cmdLength);
-				if(command.type === `starts` && command.argCount < args.length) throw args.length;
+				if(command.argCount < args.length) throw [ command.argCount, args.length ];
 				command.run();
 			}
 
@@ -482,7 +485,7 @@ class Command {
 	 * @param {string | RegExp} content
 	 * @param {(...args) => void} run
 	 */
-	constructor(type, content, run){
+	constructor(type, content, run, argCount){
 
 		this.type = type;
 		this.content = content;
@@ -490,7 +493,7 @@ class Command {
 
 		if(this.content instanceof RegExp) this.cmdLength = RegExpToString(this.content).split(/ +/).length;
 		else this.cmdLength = this.content.split(/ +/).length;
-		if(this.type === `starts`) this.argCount = run.length;
+		this.argCount = argCount || Infinity;
 
 		Command.commands[String(content)] = this;
 
