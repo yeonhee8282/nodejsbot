@@ -1,16 +1,28 @@
 {
   "name": "bot",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "r": "node index.js"
   },
   "dependencies": {
-    "discord.js": "^11.6.4",
+    "discord.js": "^11.5.1",
     "fs": "0.0.1-security",
     "moment": "^2.20.1",
     "moment-duration-format": "^2.2.1",
-    "moment-timezone": "^0.5.28"
-  }
+    "moment-timezone": "^0.5.29"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yeonhee8282/nodejsbot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yeonhee8282/nodejsbot/issues"
+  },
+  "homepage": "https://github.com/yeonhee8282/nodejsbot#readme",
+  "description": ""
 }
