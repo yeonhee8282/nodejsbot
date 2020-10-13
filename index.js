@@ -4,7 +4,7 @@ const token = process.env.token;
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setActivity('모든 봇 문의는 DM', { type: 'STREAMING', url: 'https://www.twitch.tv/faker'})
+  client.user.setActivity('모든 문의는 DM', { type: 'STREAMING', url: 'https://www.twitch.tv/faker'})
 });
 
 client.on('message', (message) => {
